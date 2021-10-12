@@ -24,7 +24,7 @@ var createfile = () => {
             fs.appendFile(filename, content, function(err) {
                 if (err) throw err;
                 console.log('file saved!');
-                console.log();
+                console.log("hello");
             });
         });
     });
