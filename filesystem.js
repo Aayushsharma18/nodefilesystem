@@ -10,15 +10,16 @@ const fs = require("fs");
 var filename = "";
 var content = "";
 
+// file create..........
 var createfile = () => {
     console.log("create your file");
 
-    rl.quetion("Enter file name: ", (fileans) => {
-        filename = fileansans + ".txt";
+    rl.question("Enter file name: ", (fileans) => {
+        filename = fileans + ".txt";
 
-        rl.quetion("start writing: ", (contentans) => {
+        rl.question("start writing: ", (contentans) => {
 
-            content = contentansans;
+            content = contentans;
 
             fs.appendFile(filename, content, function(err) {
                 if (err) throw err;
@@ -31,3 +32,29 @@ var createfile = () => {
 
 };
 createfile();
+
+// read file.....
+
+var readfilename = "";
+
+var readfile = () => {
+    rl.question("Enter file name: ", (rfile) => {
+        readfilename = rfile;
+        if (filename == readfilename) {
+            fs.readFile('readfilename', (err, data) => {
+                console.log(' ', data);
+            });
+
+        } else {
+            console.log('File does not exist..!');
+        }
+    });
+};
+exports.filewizard = () => {
+    return createfile();
+    return readfile();
+    // writefile();
+    // updatefile();
+    // deletefile();
+    // renamefile();
+};
