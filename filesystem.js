@@ -14,9 +14,9 @@ var createdir = () => {
 
     fs.mkdir(path.join(__dirname, "dir1"), true, (err) => {
         if (err) throw err;
-        console.log("Directory Created..!");
-        menu();
     });
+    console.log("\nDirectory Created..!\n");
+    menu();
 
 };
 
@@ -26,8 +26,8 @@ var removedir = () => {
 
     fs.rmdir(path.join(__dirname, "dir1"), (err) => {
         if (err) throw err;
-        console.log("Directory Removed..!");
     });
+    console.log("\nDirectory Removed..!\n");
     menu();
 };
 
@@ -36,10 +36,10 @@ var removedir = () => {
 
 var writefile = () => {
 
-    fs.writeFile("nodejsfile1", "Hello Node js User", function(err) {
+    fs.writeFile("nodejsfile1.txt", "Hello Node js User", function(err) {
         if (err) throw err;
-        console.log("file saved!");
     });
+    console.log("\nfile created & saved!\n");
     menu();
 };
 
@@ -48,9 +48,11 @@ var writefile = () => {
 
 
 var readfile = () => {
-    fs.readFile("nodejsfile1", (err, data) => {
+
+    fs.readFile("nodejsfile1.txt", 'utf8', (err, data) => {
+
         if (err) throw err;
-        console.log(' ', data);
+        console.log("\ndata: ", data);
     });
     menu();
 };
@@ -59,10 +61,10 @@ var readfile = () => {
 
 var deletefile = () => {
 
-    fs.unlink("nodejsfile1", (err) => {
+    fs.unlink("nodejsfile2.txt", (err) => {
         if (err) throw err;
-        console.log("File Deleted...!");
     });
+    console.log("\nFile Deleted...!\n");
     menu();
 };
 
@@ -70,11 +72,11 @@ var deletefile = () => {
 // rename file
 var renamefile = () => {
 
-    fs.rename("nodejsfile1", "nodejsfile2", (err) => {
+    fs.rename("nodejsfile1.txt", "nodejsfile2.txt", (err) => {
         if (err) throw err;
-        console.log("Fie Renamed..!");
 
     });
+    console.log("\nFile Renamed..!\n");
     menu();
 };
 
@@ -82,10 +84,10 @@ var renamefile = () => {
 // append file
 
 var appendfile = () => {
-    fs.appendFile("nodejsfile1", "This is appended content", (err) => {
+    fs.appendFile("nodejsfile1.txt", "This is appended content", (err) => {
         if (err) throw err;
-        console.log("File appended..!");
     });
+    console.log("\nFile appended..!\n");
     menu();
 };
 
@@ -93,10 +95,10 @@ var appendfile = () => {
 // update file
 
 var updatefile = () => {
-    fs.appendFile("nodejsfile1", "This is Updated content", (err) => {
+    fs.appendFile("nodejsfile1.txt", "This is Updated content", (err) => {
         if (err) throw err;
-        console.log("File appended..!");
     });
+    console.log("\nFile Updated..!\n");
     menu();
 };
 
@@ -104,15 +106,17 @@ var updatefile = () => {
 var menu = () => {
     ch = "";
 
+    console.log('*--------------*');
     console.log('1. Create Dir');
     console.log('2. Remove Dir');
     console.log('3. Write File');
     console.log('4. Read File');
     console.log('5. Update File');
     console.log('6. Append File');
-    console.log('7. Delete File');
-    console.log('8. Rename File');
+    console.log('7. Rename File');
+    console.log('8. Delete File');
     console.log('9. Exit');
+    console.log('*--------------*');
 
     rl.question("Enter choice: ", (ch) => {
         if (ch == 1) {
@@ -128,9 +132,9 @@ var menu = () => {
         } else if (ch == 6) {
             appendfile();
         } else if (ch == 7) {
-            deletefile();
-        } else if (ch == 8) {
             renamefile();
+        } else if (ch == 8) {
+            deletefile();
         } else if (ch == 9) {
             console.log("Exit");
         }
