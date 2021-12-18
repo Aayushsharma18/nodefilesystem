@@ -1,0 +1,12 @@
+const os = require("os");
+console.log("\n");
+console.log("********os info*********");
+console.log("Sys type: " + os.type());
+console.log("Platform: " + os.platform());
+console.log("Architecture: " + os.arch());
+console.log("Free memory: " + os.freemem());
+console.log("Total memory: " + os.totalmem());
+console.log("Host name: " + os.hostname());
+console.log("User Info: " + os.userInfo());
+console.log("//********//*********//");
+console.log("\n");
